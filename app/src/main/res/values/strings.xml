@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">WHO_SAMPLE1</string>
+    <string name="tab_text_1">DashBoard</string>
+    <string name="tab_text_2">Contacts</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="button_name">Fire</string>
+    <string name="title_card_list">Details</string>
+    <string name="title_card_detail">Card Detail</string>
+</resources>
