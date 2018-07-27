@@ -1,5 +1,6 @@
 package com.example.bdharan.who_sample1;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +29,13 @@ import java.util.List;
  * item details side-by-side using two vertical panes.
  */
 public class CardListActivity extends AppCompatActivity {
+
+    @Override
+    public void onBackPressed() {
+        this.finish();
+        Log.i("Closed","Closed");
+
+    }
 
     /**
      * Whether or not the activity is in two-pane mode, i.e. running on a tablet
@@ -66,6 +75,8 @@ public class CardListActivity extends AppCompatActivity {
     }
 
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
+        Log.i("Opening","Opening");
+
         recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(this, DummyContent.ITEMS, mTwoPane));
     }
 

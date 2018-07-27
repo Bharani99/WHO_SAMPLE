@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -32,6 +33,9 @@ import com.github.mikephil.charting.utils.ColorTemplate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+import com.example.bdharan.who_sample1.dummy.DummyContent;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -177,6 +181,8 @@ public class MainActivity extends AppCompatActivity {
          */
         private static final String ARG_SECTION_NUMBER = "section_number";
 
+        public static int position;
+
 
         public PatientListFragment() {
         }
@@ -209,6 +215,16 @@ public class MainActivity extends AppCompatActivity {
 
             ListView listView=(ListView) rootView.findViewById(R.id.list);
             listView.setAdapter(new ArrayAdapter(rootView.getContext(), android.R.layout.simple_list_item_1, list));
+
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                    position=i;
+                    startActivity(new
+                            Intent(view.getContext(),CardListActivity.class));
+                }
+            });
 
 
             return rootView;

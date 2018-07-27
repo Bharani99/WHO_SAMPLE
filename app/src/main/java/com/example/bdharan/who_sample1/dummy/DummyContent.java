@@ -1,5 +1,7 @@
 package com.example.bdharan.who_sample1.dummy;
 
+import com.example.bdharan.who_sample1.MainActivity;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -23,7 +25,7 @@ public class DummyContent {
      */
     public static final Map<String, DummyItem> ITEM_MAP = new HashMap<String, DummyItem>();
 
-    private static final int COUNT = 25;
+    public static int COUNT = 25;
 
     static {
         // Add some sample items.
