@@ -34,8 +34,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import com.example.bdharan.who_sample1.dummy.DummyContent;
-
 
 public class MainActivity extends AppCompatActivity {
 
@@ -221,8 +219,7 @@ public class MainActivity extends AppCompatActivity {
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
                     position=i;
-                    startActivity(new
-                            Intent(view.getContext(),CardListActivity.class));
+                    //startActivity(new Intent(view.getContext(),CardListActivity.class));
                 }
             });
 
@@ -251,7 +248,7 @@ public class MainActivity extends AppCompatActivity {
             if(position+1==1)
                 return MainActivity.PlaceholderFragment.newInstance(position + 1);
             else
-                return MainActivity.PatientListFragment.newInstance(position + 1);
+                return CardFragment.newInstance(position + 1);
 
 
         }

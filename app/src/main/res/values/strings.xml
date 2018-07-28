@@ -7,4 +7,7 @@
     <string name="button_name">Fire</string>
     <string name="title_card_list">Details</string>
     <string name="title_card_detail">Card Detail</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
