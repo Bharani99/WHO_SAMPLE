@@ -1,15 +1,18 @@
 package com.example.bdharan.who_sample1;
 
 import android.content.Intent;
+import java.lang.ref.WeakReference;
+
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -32,6 +35,7 @@ import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 
 
@@ -68,18 +72,21 @@ public class MainActivity extends AppCompatActivity {
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        TabLayout.Tab firstTab = tabLayout.newTab();
+        firstTab.setText("First");
+        tabLayout.addTab(firstTab);
+
+        TabLayout.Tab secondTab = tabLayout.newTab();
+        secondTab.setText("Second"); // set the Text for the second Tab
+        //secondTab.setIcon(R.drawable.ic_launcher); // set an icon for the second tab
+        tabLayout.addTab(secondTab);
 
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
+
+
 
     }
 
@@ -114,7 +121,6 @@ public class MainActivity extends AppCompatActivity {
          * The fragment argument representing the section number for this
          * fragment.
          */
-        private static final String ARG_SECTION_NUMBER = "section_number";
 
         int[] values={25,35,40};
         String[] names={"Normal","Unavailable","Emergency"};
@@ -128,9 +134,6 @@ public class MainActivity extends AppCompatActivity {
          */
         public static PlaceholderFragment newInstance(int sectionNumber) {
             PlaceholderFragment fragment = new PlaceholderFragment();
-            Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            fragment.setArguments(args);
             return fragment;
         }
 
@@ -138,13 +141,11 @@ public class MainActivity extends AppCompatActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-            int sectionNumber=getArguments().getInt(ARG_SECTION_NUMBER);
 
             PieChart chart = (PieChart) rootView.findViewById(R.id.chart);
 
 
 
-            if(sectionNumber==1) {
 
                 List<PieEntry> pieEntries = new ArrayList<>();
                 for (int i = 0; i < values.length; i++) {
@@ -162,9 +163,7 @@ public class MainActivity extends AppCompatActivity {
                 chart.getDescription().setEnabled(false);
 
                 chart.invalidate();
-            }
 
-            else chart.setVisibility(View.GONE);
 
             return rootView;
 
@@ -172,12 +171,13 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+
     public static class PatientListFragment extends Fragment {
         /**
          * The fragment argument representing the section number for this
          * fragment.
          */
-        private static final String ARG_SECTION_NUMBER = "section_number";
 
         public static int position;
 
@@ -191,9 +191,7 @@ public class MainActivity extends AppCompatActivity {
          */
         public static PatientListFragment newInstance(int sectionNumber) {
             PatientListFragment fragment = new PatientListFragment();
-            Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            fragment.setArguments(args);
+
             return fragment;
         }
 
@@ -219,7 +217,25 @@ public class MainActivity extends AppCompatActivity {
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
                     position=i;
-                    //startActivity(new Intent(view.getContext(),CardListActivity.class));
+
+
+                    FragmentTransaction trans = getFragmentManager()
+                            .beginTransaction();
+                    /*
+                     * IMPORTANT: We use the "root frame" defined in
+                     * "root_fragment.xml" as the reference to replace fragment
+                     */
+                    trans.replace(R.id.root_frame, new CardFragment());
+
+                    /*
+                     * IMPORTANT: The following lines allow us to add the fragment
+                     * to the stack and return to it later, by pressing back
+                     */
+                    trans.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                    trans.addToBackStack(null);
+
+                    trans.commit();
+
                 }
             });
 
@@ -248,7 +264,7 @@ public class MainActivity extends AppCompatActivity {
             if(position+1==1)
                 return MainActivity.PlaceholderFragment.newInstance(position + 1);
             else
-                return CardFragment.newInstance(position + 1);
+                return new RootFragment();
 
 
         }

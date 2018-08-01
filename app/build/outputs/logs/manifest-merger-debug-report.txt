@@ -4,6 +4,7 @@ ADDED from /Users/bharanidharan/AndroidStudioProjects/WHO/WHO_SAMPLE12/app/src/m
 INJECTED from /Users/bharanidharan/AndroidStudioProjects/WHO/WHO_SAMPLE12/app/src/main/AndroidManifest.xml:2:1-24:12
 INJECTED from /Users/bharanidharan/AndroidStudioProjects/WHO/WHO_SAMPLE12/app/src/main/AndroidManifest.xml:2:1-24:12
 INJECTED from /Users/bharanidharan/AndroidStudioProjects/WHO/WHO_SAMPLE12/app/src/main/AndroidManifest.xml:2:1-24:12
+MERGED from [com.alespero:expandable-cardview:0.8] /Users/bharanidharan/.gradle/caches/transforms-1/files-1.1/expandable-cardview-0.8.aar/e20906f0fd312a4b1722b27135676eeb/AndroidManifest.xml:2:1-11:12
 MERGED from [com.android.support:design:26.1.0] /Users/bharanidharan/.gradle/caches/transforms-1/files-1.1/design-26.1.0.aar/83a1c203ea1cda6ffc2a91ac7c2221f8/AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:appcompat-v7:26.1.0] /Users/bharanidharan/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/2685c77cbcde7fa2bc42ce681fa27344/AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support.constraint:constraint-layout:1.1.2] /Users/bharanidharan/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.2.aar/b962790ed426b998f1bb3c3b9eed65a1/AndroidManifest.xml:2:1-11:12
@@ -100,6 +101,8 @@ uses-sdk
 INJECTED from /Users/bharanidharan/AndroidStudioProjects/WHO/WHO_SAMPLE12/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/bharanidharan/AndroidStudioProjects/WHO/WHO_SAMPLE12/app/src/main/AndroidManifest.xml
 INJECTED from /Users/bharanidharan/AndroidStudioProjects/WHO/WHO_SAMPLE12/app/src/main/AndroidManifest.xml
+MERGED from [com.alespero:expandable-cardview:0.8] /Users/bharanidharan/.gradle/caches/transforms-1/files-1.1/expandable-cardview-0.8.aar/e20906f0fd312a4b1722b27135676eeb/AndroidManifest.xml:7:5-9:41
+MERGED from [com.alespero:expandable-cardview:0.8] /Users/bharanidharan/.gradle/caches/transforms-1/files-1.1/expandable-cardview-0.8.aar/e20906f0fd312a4b1722b27135676eeb/AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:design:26.1.0] /Users/bharanidharan/.gradle/caches/transforms-1/files-1.1/design-26.1.0.aar/83a1c203ea1cda6ffc2a91ac7c2221f8/AndroidManifest.xml:21:5-23:62
 MERGED from [com.android.support:design:26.1.0] /Users/bharanidharan/.gradle/caches/transforms-1/files-1.1/design-26.1.0.aar/83a1c203ea1cda6ffc2a91ac7c2221f8/AndroidManifest.xml:21:5-23:62
 MERGED from [com.android.support:appcompat-v7:26.1.0] /Users/bharanidharan/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/2685c77cbcde7fa2bc42ce681fa27344/AndroidManifest.xml:21:5-23:78

@@ -23,6 +23,7 @@ public class CardFragment extends Fragment {
     public static int position;
 
 
+
     public CardFragment() {
     }
 
